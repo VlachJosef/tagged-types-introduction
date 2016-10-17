@@ -1,4 +1,4 @@
-package com.vlachjosef
+package com.vlachjosef.shapeless
 
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -6,7 +6,7 @@ class TaggedTypesSuite extends FlatSpec with Matchers {
 
   "Simple types" should "provide *less* type safety and they do :(" in {
 
-    import com.vlachjosef.notypes._
+    import com.vlachjosef.shapeless.notypes._
 
     val firePit    = Arena("firePit", "Fire Pit")
     val iceDungeon = Arena("iceDungeon", "Ice Dungeon")
@@ -23,7 +23,7 @@ class TaggedTypesSuite extends FlatSpec with Matchers {
   }
 
   "Tagged types" should "provide *more* type safety and they do :)" in {
-    import com.vlachjosef.tags._
+    import com.vlachjosef.shapeless.tags._
     import shapeless.tag
 
     val thePitId     = tag[ArenaIdTag][String]("firePit")
