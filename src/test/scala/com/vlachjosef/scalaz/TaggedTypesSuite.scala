@@ -1,4 +1,4 @@
-package com.vlachjosef
+package com.vlachjosef.scalaz
 
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -6,7 +6,7 @@ class TaggedTypesSuite extends FlatSpec with Matchers {
 
   "Simple types" should "provide *less* type safety and they do :(" in {
 
-    import com.vlachjosef.notypes._
+    import com.vlachjosef.scalaz.notypes._
 
     val firePit    = Arena("firePit", "Fire Pit")
     val iceDungeon = Arena("iceDungeon", "Ice Dungeon")
@@ -23,18 +23,18 @@ class TaggedTypesSuite extends FlatSpec with Matchers {
   }
 
   "Tagged types" should "provide *more* type safety and they do :)" in {
-    import com.vlachjosef.tags._
-    import shapeless.tag
+    import com.vlachjosef.scalaz.tags._
+    import scalaz.Tag
 
-    val thePitId     = tag[ArenaIdTag][String]("firePit")
-    val iceDungeonId = tag[ArenaIdTag][String]("iceDungeon")
-    val bracket1Id = tag[BracketIdTag][String]("bracket1")
-    val bracket2Id = tag[BracketIdTag][String]("bracket2")
-    val bracket3Id = tag[BracketIdTag][String]("bracket3")
-    val player1Id = tag[ProfileIdTag][String]("player1")
-    val player2Id = tag[ProfileIdTag][String]("player2")
-    val player3Id = tag[ProfileIdTag][String]("player3")
-    val player4Id = tag[ProfileIdTag][String]("player4")
+    val thePitId     = Tag.of[ArenaIdTag]("firePit")
+    val iceDungeonId = Tag.of[ArenaIdTag]("iceDungeon")
+    val bracket1Id = Tag.of[BracketIdTag]("bracket1")
+    val bracket2Id = Tag.of[BracketIdTag]("bracket2")
+    val bracket3Id = Tag.of[BracketIdTag]("bracket3")
+    val player1Id = Tag.of[ProfileIdTag]("player1")
+    val player2Id = Tag.of[ProfileIdTag]("player2")
+    val player3Id = Tag.of[ProfileIdTag]("player3")
+    val player4Id = Tag.of[ProfileIdTag]("player4")
 
     val firePit    = Arena(thePitId, "Fire Pit")
     val iceDungeon = Arena(iceDungeonId, "Ice Dungeon")

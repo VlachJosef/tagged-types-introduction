@@ -1,4 +1,4 @@
-package com.vlachjosef
+package com.vlachjosef.shapeless
 
 package notypes {
   case class Arena(
